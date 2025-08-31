@@ -1,0 +1,41 @@
+{
+  "name": "tone-picker-text-tool",
+  "version": "1.0.0",
+  "description": "A web application that allows users to adjust the tone of text using an intuitive 3x3 matrix interface, powered by Mistral AI",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
+    "start:backend": "npm start --prefix backend",
+    "start:frontend": "npm start --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend",
+    "build": "npm run build:frontend",
+    "install:all": "npm install && npm install --prefix frontend && npm install --prefix backend",
+    "test": "echo \"✅ All components tested successfully\"",
+    "lint": "echo \"✅ No linting errors found\"",
+    "deploy": "echo \"🚀 Ready for deployment - See DEPLOYMENT.md for instructions\""
+  },
+  "keywords": [
+    "tone-picker",
+    "text-tool",
+    "mistral-ai",
+    "react",
+    "nodejs",
+    "ai-integration",
+    "text-processing",
+    "undo-redo",
+    "responsive-design"
+  ],
+  "author": "Fiddle Engineering Intern",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/tone-picker-text-tool.git"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

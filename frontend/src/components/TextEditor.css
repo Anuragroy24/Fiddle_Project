@@ -1,0 +1,241 @@
+.text-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.text-editor-header {
+  margin-bottom: 1rem;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.text-editor-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.text-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.char-count, .word-count {
+  color: #666;
+  font-weight: 500;
+}
+
+.char-count.near-limit {
+  color: #f39c12;
+}
+
+.char-count.over-limit {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.editor-controls {
+  margin-bottom: 0.5rem;
+}
+
+.clear-btn {
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clear-btn:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #fee;
+  color: #c33;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #fcc;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.warning-message {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ffeaa7;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.info-message {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #bee5eb;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.text-editor-container {
+  position: relative;
+  height: 100%;
+}
+
+.text-input {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.text-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.text-input.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.text-input.text-near-limit {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+}
+
+.text-input.text-too-long {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loading-overlay p {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.loading-overlay small {
+  margin: 0;
+  color: #888;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .text-editor {
+    margin-right: 0;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .text-stats {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .text-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 200px;
+  }
+
+  .editor-controls {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-editor-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .text-stats {
+    font-size: 0.8rem;
+  }
+
+  .clear-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .error-message,
+  .warning-message,
+  .info-message {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .loading-overlay p {
+    font-size: 0.9rem;
+  }
+
+  .loading-overlay small {
+    font-size: 0.8rem;
+  }
+}

@@ -71,7 +71,7 @@ const TonePicker = ({
           <div className="y-axis">
             <span className="axis-label top">Friendly</span>
             <span className="axis-label middle">Neutral</span>
-            <span className="axis-label bottom">Professional</span>
+            <span className="axis-label bottom">Profes</span>
           </div>
         </div>
         

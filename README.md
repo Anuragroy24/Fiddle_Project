@@ -117,24 +117,6 @@ The application uses a sophisticated undo/redo system:
 4. **Loading States**: Clear visual feedback during API processing
 5. **Fallback Behavior**: Application remains functional even when backend is unavailable
 
-## Development
-
-### Project Structure
-\`\`\`
-fiddleProject/
-├── frontend/                 # React application
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── utils/           # Utility functions
-│   │   └── ...
-│   └── ...
-├── backend/                 # Node.js/Express server
-│   ├── server.js           # Main server file
-│   ├── .env                # Environment variables
-│   └── ...
-└── README.md               # This file
-\`\`\`
 
 ### Available Scripts
 
@@ -188,32 +170,6 @@ Check backend server health.
 }
 \`\`\`
 
-## Trade-offs & Design Decisions
-
-### 1. **Caching Strategy**
-- **Decision**: Simple in-memory cache on backend
-- **Trade-off**: Cache lost on server restart, but simple to implement and effective for development
-- **Alternative**: Could use Redis for persistent caching in production
-
-### 2. **State Management**
-- **Decision**: Custom \`useUndoRedo\` hook instead of Redux
-- **Trade-off**: Simpler implementation for this specific use case
-- **Alternative**: Redux would provide more sophisticated state management for larger applications
-
-### 3. **API Key Security**
-- **Decision**: Store API key on backend only
-- **Trade-off**: Requires backend server, but keeps API key secure
-- **Alternative**: Client-side API calls would be simpler but expose the API key
-
-### 4. **Persistence Strategy**
-- **Decision**: localStorage for client-side persistence
-- **Trade-off**: Data tied to browser/device, but no backend database required
-- **Alternative**: Backend database would enable cross-device sync
-
-### 5. **UI Framework Choice**
-- **Decision**: Custom CSS with React
-- **Trade-off**: More development time, but full control over design
-- **Alternative**: UI frameworks like Material-UI would be faster to implement
 
 ## Deployment
 
@@ -230,17 +186,6 @@ Check backend server health.
    - \`NODE_ENV\`: production
    - \`PORT\`: (usually auto-configured)
 
-## Testing
-
-The application includes comprehensive error handling and has been tested for:
-- ✅ API integration with various text inputs
-- ✅ Network failure scenarios
-- ✅ Invalid API responses
-- ✅ Rate limiting handling
-- ✅ Undo/redo functionality with complex state changes
-- ✅ Responsive design across devices
-- ✅ localStorage persistence and recovery
-- ✅ Edge cases (empty text, very long text, special characters)
 
 ## Performance Considerations
 
@@ -249,10 +194,4 @@ The application includes comprehensive error handling and has been tested for:
 - **Optimistic Updates**: UI updates immediately with loading states
 - **Error Recovery**: Failed requests don't break the application state
 
-## License
 
-MIT License - feel free to use this project as a reference or starting point for your own applications.
-
----
-
-For questions or issues, please refer to the code comments or create an issue in the repository.
